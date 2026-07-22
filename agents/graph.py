@@ -26,7 +26,7 @@ if __name__ == "__main__":
     graph = build_graph()
 
     initial_state: ApplicationState = {
-        "application_id": 1,
+        "application_id": 1,  # <- use the ID printed by seed_data.py
         "current_state": DFAState.S0_RESUME_SUBMITTED,
         "resume_text": None,
         "skill_match_score": None,
