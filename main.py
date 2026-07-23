@@ -3,10 +3,13 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 from database import get_db
 from database import engine, Base
+from routers import applicants, positions
 import models
 
 Base.metadata.create_all(bind=engine)
 app = FastAPI()
+app.include_router(applicants.router)
+app.include_router(positions.router)
 
 @app.get("/")
 def root():

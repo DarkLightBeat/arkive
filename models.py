@@ -30,9 +30,15 @@ class Position(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)
     department = Column(String)
+    employment_type = Column(String)  # full-time, OJT, contractual
     description = Column(Text)
-    required_skills = Column(Text)  # raw text version of requirements
-    is_open = Column(Integer, default=1)  # 1 = open, 0 = closed
+    responsibilities = Column(Text)
+    required_skills = Column(Text)
+    preferred_skills = Column(Text)
+    education_requirement = Column(String)
+    min_experience_years = Column(Integer)
+    certifications_required = Column(Text)
+    is_open = Column(Integer, default=1)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     applications = relationship("Application", back_populates="position")
